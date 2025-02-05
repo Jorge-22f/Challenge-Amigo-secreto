@@ -8,11 +8,8 @@ El reto consiste en desarrollarás una aplicación que permita a los usuarios in
 - Agregar nombres y nicks: Los usuarios escribirán el nombre de un amigo en un campo de texto y lo agregarán a una lista visible al hacer clic en "Adicionar".
 
 - Validar entrada: Si el campo de texto está vacío, el programa mostrará una alerta pidiendo rellenar los campos.
-
 - Visualizar la lista: Los nombres ingresados aparecerán en una lista debajo del campo de entrada.
-
-- Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente los nombres de la lista y se mostrará junto a su amigo secreto en la página.
-  
+- Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente los nombres de la lista y se mostrará junto a su amigo secreto en la página.  
 ### Cómo pueden usarlo los usuarios.
 1. Ingresar a la pagina de la aplicacion.
 2. Inscribir el nombre y el nick de cada uno de los participantes del juego.
@@ -21,9 +18,9 @@ El reto consiste en desarrollarás una aplicación que permita a los usuarios in
 5. Si desea puede descargar en formato PDF el resultado del sorteo.
 
 ### Tecnologias usadas
--HTML
--CSS
--Javascript
+- HTML
+- CSS
+- Javascript
 
-### Autores del proyecto.
+### Autor del proyecto.
 Jorge Fonseca
