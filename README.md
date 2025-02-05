@@ -20,5 +20,10 @@ El reto consiste en desarrollarás una aplicación que permita a los usuarios in
 4. Al finalizar el sorteo aparecerauna lista de los nicks de cada uno de los integrantes del juego junto con el nick de su amigo secreto.
 5. Si desea puede descargar en formato PDF el resultado del sorteo.
 
+### Tecnologias usadas
+-HTML
+-CSS
+-Javascript
+
 ### Autores del proyecto.
 Jorge Fonseca
