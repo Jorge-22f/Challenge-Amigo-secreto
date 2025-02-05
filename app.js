@@ -75,6 +75,22 @@ function condicionalLista(listasDiferentes) {
   }
 } 
 
+// Generar PDF
+function generarPDF() {
+  const {jsPDF} = window.jspdf;
+  const descargable = new jsPDF();
+
+  descargable.setFontSize(16);
+  descargable.text("Resultado de Sorteo amigo secreto", 20, 20);
+
+  let y = 30;
+  for (let i = 0; i < listaNombres.length; i++) {
+    descargable.text(`${listaNombres[i].nombre}, tu amigo secreto es: ${listaDuplicadaNombres[i].nombre}`, 20, y);
+    y += 10;    
+  }
+  descargable.save("Listado_amigo_secreto.pdf");
+}
+
 // Evento agregar objeto y sorteo amigos
 document.querySelector('.button-add').addEventListener('click', validarFormulario);
 document.querySelector('.button-draw').addEventListener('click', () => {
@@ -86,3 +102,4 @@ document.querySelector('.button-draw').addEventListener('click', () => {
   // Verificar condición
   condicionalLista(listasDiferentes);
 });
+document.querySelector('.button-pdf').addEventListener('click', generarPDF);

@@ -96,7 +96,7 @@ body {
 
 .button-container {
     width: 300px;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 /* Estilos de entrada de texto */
@@ -165,5 +165,29 @@ ul {
 }
 
 .button-draw:hover {
+    background-color: var(--color-button-hover);
+}
+/*Boton descargar pdf*/
+.buttons {
+    display: flex;
+    margin-top: 5px;
+    gap: 10px;
+}
+
+.buttons button{
+    display: flex;
+    color: var(--color-white);
+    background-color: var(--color-button);
+    font-size: 16px;
+    align-items: center;        
+    width: auto;
+    padding: 10px 40px;
+}
+
+.buttons button img {
+    margin-right: 40px;
+}
+
+.buttons button:hover {
     background-color: var(--color-button-hover);
 }
