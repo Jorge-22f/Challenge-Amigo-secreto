@@ -27,6 +27,20 @@ function agregarObjeto() {
 
   listaNombres.push(nuevoObjeto);
   limpieza();
+  visualizarLista ()
+}
+
+function visualizarLista () {
+  const contenidolistaAmigos = document.getElementById('listaAmigos');
+  contenidolistaAmigos.innerHTML = ''; // Limpiar contenido anterior
+
+  const listaJugadores = document.createElement('ul');
+  for (let i = 0; i < listaNombres.length; i++) {
+    const element = document.createElement('li');
+    element.textContent = `${listaNombres[i].nombre}`;
+    listaJugadores.appendChild(element);
+  }
+  contenidolistaAmigos.appendChild(listaJugadores);
 }
 
 function limpieza() {
@@ -61,7 +75,7 @@ function condicionalLista(listasDiferentes) {
     const listaEmparejados = document.createElement('ul');
     for (let i = 0; i < listaNombres.length; i++) {
       const element = document.createElement('li');
-      element.textContent = `${listaNombres[i].nombre}, tu amigo secreto es: ${listaDuplicadaNombres[i].nombre}`;
+      element.textContent = `▪️ ${listaNombres[i].nombre}, tu amigo secreto es: ${listaDuplicadaNombres[i].nombre} 🎉`;
       listaEmparejados.appendChild(element);
     }
     contenidoResultado.appendChild(listaEmparejados);
@@ -77,18 +91,40 @@ function condicionalLista(listasDiferentes) {
 
 // Generar PDF
 function generarPDF() {
-  const {jsPDF} = window.jspdf;
-  const descargable = new jsPDF();
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
 
-  descargable.setFontSize(16);
-  descargable.text("Resultado de Sorteo amigo secreto", 20, 20);
+  doc.setFontSize(20);
+  doc.setTextColor(40, 40, 40);
+  doc.text("Resultados del Sorteo de Amigo Secreto", 20, 20);
 
-  let y = 30;
+  let y = 30; // Inicializamos y para comenzar a escribir después del título
+
+  doc.setFontSize(16);
+  doc.setTextColor(0, 0, 0);
+  
   for (let i = 0; i < listaNombres.length; i++) {
-    descargable.text(`${listaNombres[i].nombre}, tu amigo secreto es: ${listaDuplicadaNombres[i].nombre}`, 20, y);
-    y += 10;    
+    doc.text(`${listaNombres[i].nombre} tu amigo secreto es: ${listaDuplicadaNombres[i].nombre}`, 20, y);
+    y += 10; // Incrementamos y en 10 para la siguiente línea
   }
-  descargable.save("Listado_amigo_secreto.pdf");
+
+  // Añadir borde
+  doc.setLineWidth(1);
+  doc.setDrawColor(255, 0, 0);
+  doc.rect(10, 10, 190, y + 10);
+
+  // Guardar PDF
+  doc.save("amigo_secreto.pdf");
+}
+
+// modal
+function toggleModal() {
+  const modal = document.getElementById("helpModal");
+  if (modal.style.display === "block") {
+    modal.style.display = "none";
+  } else {
+    modal.style.display = "block";
+  }
 }
 
 // Evento agregar objeto y sorteo amigos
@@ -98,8 +134,10 @@ document.querySelector('.button-draw').addEventListener('click', () => {
   // Llamar función para sortear la lista listaNombres
   sortearAmigo();
   // Comparar las listas
-  listasDiferentes = compararListas(listaNombres, listaDuplicadaNombres);
+  const listasDiferentes = compararListas(listaNombres, listaDuplicadaNombres);
   // Verificar condición
   condicionalLista(listasDiferentes);
+  // Activando boton PDF
+  document.querySelector('.button-pdf').disabled = false;
 });
 document.querySelector('.button-pdf').addEventListener('click', generarPDF);

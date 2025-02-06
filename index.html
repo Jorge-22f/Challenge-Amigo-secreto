@@ -37,18 +37,32 @@
                     <img src="assets/play_circle_outline.png" alt="Ícono para sortear">
                     Sortear amigo
                 </button>
-                <div class="buttons">
-                    <button class="button-pdf" aria-label="Generar PDF">
-                        <img src="assets/download.png" alt="Ícono para descargar">
-                        Generar PDF
-                    </button>
-                    <button class="button-recargar" aria-label="Volver a jugar">
-                        <img src="assets/recargar.png" alt="Ícono para volver a jugar">
-                        Volver a jugar
-                    </button>
-                </div>
+
+                <button id="Generar-PDF" class="button-pdf" aria-label="Generar PDF" disabled>
+                    <img src="assets/download.png" alt="Ícono para descargar">
+                    Generar PDF
+                </button>
+
             </div>
         </section>
+
+        <!-- Botón de ayuda -->
+        <button class="help-button" onclick="toggleModal()">❓</button>
+
+        <!-- Modal -->
+        <div id="helpModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="toggleModal()">&times;</span>
+                <h2>Instrucciones de la Aplicación</h2>
+                <p> ▪️ Ingrese uno a uno el nombre y los apodos de los participantes y seleccione el boton "añadir".<br>
+                    ▪️ En la pantalla parecera uno a uno el apodo de los participantes que ha ingresado.<br>
+                    ▪️ Una vez ingresados los participantes seleccionar el boton "sortear amigo".<br>
+                    ▪️ Al finalizar el sorteo vera en pantalla el resultado del emparejamiento.<br>
+                    ▪️ Podra descargar los resultados y compartirlos con los participantes seleccionando el boton "Generar PDF".
+                </p>
+            </div>
+        </div>
+
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
